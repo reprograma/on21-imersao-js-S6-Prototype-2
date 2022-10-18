@@ -33,15 +33,7 @@ O que veremos na aula de hoje?
 - [Conteúdo](#conteúdo)
 
   - [Recaptulando](#recaptulando)
-
-    - [O que são e para que servem ](#o-que-são-e-para-que-servem)
-    - [Benefícios](#benefícios)
-    - [Abordagens](#abordagens)
-    - [Implementação](#implementação)
-
-  - [Outro Exemplo](#outro-exemplo)
-
-    - [ETCETC](#etcetc)
+  - [ES6 Instantiation](#es6-instantiation)
 
   - [Exercícios](#exercícios)
   - [Material da aula](#material-da-aula)
@@ -228,7 +220,7 @@ console.log(animal1);
 Podemos perceber que essa maneira é muito parecida com a `Pseudoclassical Instantiation`. Aqui, é como se estivéssemos englobando tudo o que fizemos lá, dentro de uma classe que leva o nome da nossa `função construtora`.
 Dessa maneira, utilizamos a palavra `class` ao invés de `function`, temos uma função construtora **dentro** da classe, bem como os métodos dela. Além disso, não utilizamos mais a palavra `prototype`.
 
-
+#### → Vamos aplicar? [Exercício 1](/exercicios/para-sala/exercicio-1)
 
 ---
 
