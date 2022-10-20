@@ -33,11 +33,14 @@ O que veremos na aula de hoje?
 
   - [Recaptulando](#recaptulando)
   - [ES6 Instantiation](#es6-instantiation)
+		- [Métodos e propriedades estáticas](#métodos-e-propriedades-estáticas)
+		- [Herança](#heran%C3%A7a)
+		- [Modificadores de acesso](#modificadores-de-acesso)
 
-  - [Exercícios](#exercícios)
-  - [Material da aula](#material-da-aula)
-  - [Links Úteis](#links-úteis)
-  - [Contatos](#contatos)
+- [Exercícios](#exercícios)
+- [Material da aula](#material-da-aula)
+- [Links Úteis](#links-úteis)
+- [Contatos](#contatos)
 
 # Conteúdo
 
