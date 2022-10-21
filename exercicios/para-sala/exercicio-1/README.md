@@ -5,31 +5,24 @@
 
 ## Exercício 1
 
-Defina uma função construtora no modelo ES6 Instantiation para um objeto `Bank`.
+Vamos criar um aplicativo de corridas estilo Uber apenas para mulheres.
 
-O banco deve ser instanciado com:
-- [ ] Número
+Pra começar, defina uma função construtora ES6 Instantiation (Classe) para um objeto `Driver`.
+
+Essa classe deve possuir os seguintes atributos:
+- [ ] Nome - recebido como parâmetro no constructor
+- [ ] Idade - recebido como parâmetro no constructor. Só é possível ser motorista caso a idade seja maior ou igual 18. Caso contrário, o objeto motorista não pode ser criado.
+- [ ] Quantidade de corridas realizadas - inicializado com 0.
+- [ ] Valor recebidos em corridas - inicializado com 0.
+
+Crie outra classe chamada `Passenger`
+Essa classe também deve possuir os seguintes atributos:
 - [ ] Nome
-- [ ] Taxa de transferência para outros bancos
+- [ ] Idade
+- [ ] Valor gasto em corridas - inicializado com 0.
 
-Defina também uma função construtora para um objeto `Account`.
-
-A conta deve ser instanciada com:
-- [ ] Banco (deve ser um objeto do tipo `Bank`)
-- [ ] Número da conta
-- [ ] Número da agência
-- [ ] Um montante inicial que deve ser diferente de zero
-
-A conta também deve possuir:
-- [ ] Quantidade de retiradas de dinheiro em bancos 24 horas realizadas, que deve ser inicializado com 0.
-- [ ] Taxa a ser cobrada em cada retirada em bancos 24 horas. Cada tem direito a realizar uma quantidade X de retiradas gratuitas. Após isso, essa taxa começa a ser cobrada em cada retirada.
-
-Os métodos de `Account` são:
-- [ ] `credit(amount)`, que adiciona o valor especificado ao montante. Imprime na console o resultado.
-- [ ] `debit(amount)`, que subtrai o valor especificado do montante. Imprime na console o resultado.
-- [ ] `transferTo(anotherAccount, amount)`, que transfere o valor especificado desta conta para a outra conta (o parâmetro deve ser um objeto conta). Imprime na console o resultado. Caso não haja valor suficiente para a operação, ela deve retornar uma exceção com a mensagem especificada. Caso a transferência seja para um banco diferente, utilize a taxa do banco de origem.
-- [ ] `cashWithdrawal(amount)`, para realizar retiradas de dinheiro em bancos 24 horas.
-- [ ] `closeAccount()`, para encerrar a conta. Caso a conta possua saldo não é possível encerra-la.
+Além disso, a classe `Passenger` deve possuir os seguintes métodos:
+- [ ] `requestDrive(driver, amount)`, que serve para o passageiro solicitar uma corrida com um motorista específico. O parâmetro `amount` é o valor da corrida. O parâmetro `driver` precisa, obrigatoriamente, ser do tipo `Driver`, caso contrário, a requisição não pode ser realizada. Quando um passageiro solicita uma corrida, o motorista aumenta em 1 a sua quantidade de corridas realizadas e aumenta o valor total recebido por corridas. Além disso, o passageiro aumenta o valor total gasto em corridas.
 
 Teste tudo o que foi criado.
 
