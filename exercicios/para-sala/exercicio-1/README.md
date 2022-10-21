@@ -16,7 +16,7 @@ Essa classe deve possuir os seguintes atributos:
 - [ ] Valor recebidos em corridas - inicializado com 0.
 
 Crie outra classe chamada `Passenger`
-Essa classe também deve possuir os seguintes atributos:
+Essa classe deve possuir os seguintes atributos:
 - [ ] Nome - recebido como parâmetro no constructor
 - [ ] Idade - recebido como parâmetro no constructor
 - [ ] Senha - recebido como parâmetro no constructor
