@@ -15,7 +15,8 @@ Essa classe deve possuir os seguintes atributos:
 - [ ] Quantidade de corridas realizadas - inicializado com 0.
 - [ ] Valor recebidos em corridas - inicializado com 0.
 
-Crie outra classe chamada `Passenger`
+Crie outra classe chamada `Passenger`.
+
 Essa classe deve possuir os seguintes atributos:
 - [ ] Nome - recebido como parâmetro no constructor
 - [ ] Idade - recebido como parâmetro no constructor
@@ -23,8 +24,10 @@ Essa classe deve possuir os seguintes atributos:
 - [ ] Valor gasto em corridas - inicializado com 0.
 
 Além disso, a classe `Passenger` deve possuir os seguintes métodos:
-- [ ] `requestDrive(driver, amount, password)`, que serve para o passageiro solicitar uma corrida com um motorista específico.
+- [ ] `requestDrive(driver, amount, password)`, que serve para a passageira solicitar uma corrida com uma motorista específica.
+
 Esse método deve obedecer as seguintes regras:
+
 - O parâmetro `amount` é o valor da corrida.
 - A corrida só pode ser solicitada se a senha (`password`) estiver correta.
 - O parâmetro `driver` precisa, obrigatoriamente, ser do tipo `Driver`, caso contrário, a requisição não pode ser realizada.
