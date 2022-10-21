@@ -17,12 +17,20 @@ Essa classe deve possuir os seguintes atributos:
 
 Crie outra classe chamada `Passenger`
 Essa classe também deve possuir os seguintes atributos:
-- [ ] Nome
-- [ ] Idade
+- [ ] Nome - recebido como parâmetro no constructor
+- [ ] Idade - recebido como parâmetro no constructor
+- [ ] Senha - recebido como parâmetro no constructor
 - [ ] Valor gasto em corridas - inicializado com 0.
 
 Além disso, a classe `Passenger` deve possuir os seguintes métodos:
-- [ ] `requestDrive(driver, amount)`, que serve para o passageiro solicitar uma corrida com um motorista específico. O parâmetro `amount` é o valor da corrida. O parâmetro `driver` precisa, obrigatoriamente, ser do tipo `Driver`, caso contrário, a requisição não pode ser realizada. Quando um passageiro solicita uma corrida, o motorista aumenta em 1 a sua quantidade de corridas realizadas e aumenta o valor total recebido por corridas. Além disso, o passageiro aumenta o valor total gasto em corridas.
+- [ ] `requestDrive(driver, amount, password)`, que serve para o passageiro solicitar uma corrida com um motorista específico.
+Esse método deve obedecer as seguintes regras:
+- O parâmetro `amount` é o valor da corrida.
+- A corrida só pode ser solicitada se a senha (`password`) estiver correta.
+- O parâmetro `driver` precisa, obrigatoriamente, ser do tipo `Driver`, caso contrário, a requisição não pode ser realizada.
+- O motorista aumenta em 1 a sua quantidade de corridas realizadas
+- O motorista aumenta o valor total recebido por corridas, de acordo com o parâmetro `amount`.
+- O passageiro aumenta o valor total gasto em corridas, de acordo com o parâmetro `amount`.
 
 Teste tudo o que foi criado.
 
