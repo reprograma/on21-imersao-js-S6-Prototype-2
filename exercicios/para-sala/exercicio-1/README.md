@@ -32,8 +32,8 @@ Esse método deve obedecer as seguintes regras:
 - A corrida só pode ser solicitada se a senha (`password`) estiver correta.
 - O parâmetro `driver` precisa, obrigatoriamente, ser do tipo `Driver`, caso contrário, a requisição não pode ser realizada.
 - O motorista aumenta em 1 a sua quantidade de corridas realizadas
-- O motorista aumenta o valor total recebido por corridas, de acordo com o parâmetro `amount`.
-- O passageiro aumenta o valor total gasto em corridas, de acordo com o parâmetro `amount`.
+- O `amount` do motorista **aumenta** a cada corrida, de acordo com o parâmetro `amount` da função (esse valor será sempre **positivo**).
+- O `amount` do passageiro **diminui** a cada corrida, de acordo com o parâmetro `amount` da função (esse valor será sempre **negativo**).
 
 Teste tudo o que foi criado.
 
