@@ -11,8 +11,8 @@ A classe deve possuir as seguintes propriedades:
 
 Defina também uma classe para um objeto `Bank`.
 O banco deve possuir as seguintes propriedades:
-- [ ] `Número`
-  - Recebido por parâmetro durante a instanciação.
+- [ ] `Código`
+  - Número do banco, recebido por parâmetro durante a instanciação.
 
 - [ ] `Nome`
   - Recebido por parâmetro durante a instanciação.
@@ -21,9 +21,11 @@ O banco deve possuir as seguintes propriedades:
   - Recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
 
-- [ ] `Quantidade de clientes que esse banco possui`.
-  - Deve ser inicializado com 0 e aumentar a medida que um cliente é associado a esse banco.
-  - Deve ser um parâmetro privado, mas pode-se ter acesso quando necessário.
+- [ ] `Bancos criados`
+  - Propriedade estática, sendo ela uma array de objetos que é inicialmente vazia e é atualizada a cada vez que um novo banco é criado, contendo:
+    - `Código do banco criado`
+    - `Quantidade de clientes que esse banco possui`
+      - Esse valor deve ser inicializado com 0 e aumentar a medida que um cliente é associado a esse banco.
 
 Defina ainda uma classe `Client`, herdando da classe `Person`.
 Um cliente possui também as seguintes propriedades:
@@ -35,7 +37,7 @@ Como métodos da classe `Client`, temos:
   - O parâmetro deve obrigatoriamente ser do tipo `Bank`.
   - Lembrar de aumentar a quantidade de clientes que esse banco possui.
 
-- [ ] `deleteBank(bank)`: desassocia um banco a esse cliente.
+- [ ] `removeBank(bank)`: desassocia um banco a esse cliente.
   - O parâmetro deve obrigatoriamente ser do tipo `Bank`.
   - Lembrar de diminuir a quantidade de clientes que esse banco possui.
 
