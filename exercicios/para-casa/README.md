@@ -34,11 +34,13 @@ Um cliente possui também as seguintes propriedades:
 
 Como métodos da classe `Client`, temos:
 - [ ] `addBank(bank)`: associa um banco a esse cliente.
-  - O parâmetro deve obrigatoriamente ser do tipo `Bank`.
+  - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
+  - Verifique se o cliente já tem esse banco associado a ele. Se tiver, retorne uma mensagem e não adicione novamente.
   - Lembrar de aumentar a quantidade de clientes que esse banco possui.
 
 - [ ] `removeBank(bank)`: desassocia um banco a esse cliente.
-  - O parâmetro deve obrigatoriamente ser do tipo `Bank`.
+  - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
+  - Verifique se o cliente tem esse banco associado a ele. Se não tiver, retorne uma mensagem e termine a execução da função.
   - Lembrar de diminuir a quantidade de clientes que esse banco possui.
 
 Por fim, defina uma classe para um objeto `BankAccount`.
@@ -60,7 +62,7 @@ A conta deve possuir as seguintes propriedades:
   
 - [ ] `Um montante`
   - Deve ser inicializado com 0.
-  - Deve ser um parâmetro privado.
+  - Deve ser um parâmetro privado, mas pode ser mostrado quando solicitado.
 
 - [ ] `Quantidade de retiradas de dinheiro em bancos 24 horas`
   - Deve ser inicializado com 0.
@@ -89,6 +91,7 @@ A classe `BankAccount` possui os seguintes métodos:
   - A cada retirada realizada, informe ao cliente quantas retiradas ele já realizou e se ainda possui retiradas gratuitas.
     - Se sim, informe quantas.
     - Se não, informe a taxa que será cobrada a cada retirada.
+  - Caso não haja valor suficiente para a operação, ela deve retornar uma mensagem para o usuário.
   - Imprima na console o resultado.
 
 - [ ] `closeAccount()`: encerra a conta.
