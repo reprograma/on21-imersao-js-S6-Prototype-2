@@ -20,4 +20,4 @@ const motorista2 = new Driver ('João', 16)
 console.log("Motorista 1:", motorista);
 console.log("Motorista 2:", motorista2);
 
-exports.module = Driver
+module.exports = { Driver } 
