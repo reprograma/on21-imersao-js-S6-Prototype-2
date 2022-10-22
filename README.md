@@ -499,7 +499,6 @@ Em JavaScript, temos os seguintes tipos de acesso para as nossas propriedades e 
 
 - `public` (público)
 - `private` (privado) -> #
-- `protected`(protegido) -> \_
 
 #### Public
 
@@ -580,6 +579,11 @@ const user1 = new User('Luara', 27, 'luarakerlen@hotmail.com', 123456);
 console.log(user1.#password); //ERRO: A propriedade '#password' não é acessível fora da classe 'User' porque tem um identificador privado.ts
 console.log(user1.#encryptPassword()); //ERRO: A propriedade '#encryptPassword' não é acessível fora da classe 'User' porque tem um identificador privado.
 ```
+
+#### Get e Set
+
+No JavaScript, quando temos parâmetros privados, podemos utilizar o que chamamos de Getters e Setters.
+
 
 #### → Vamos aplicar? [Exercício 4](/exercicios/para-sala/exercicio-4)
 
