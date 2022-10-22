@@ -10,18 +10,18 @@ Vamos criar um aplicativo de corridas estilo Uber apenas para mulheres.
 Pra começar, defina uma função construtora ES6 Instantiation (Classe) para um objeto `Driver`.
 
 Essa classe deve possuir os seguintes atributos:
-- [ ] Nome - recebido como parâmetro no constructor
-- [ ] Idade - recebido como parâmetro no constructor. Só é possível ser motorista caso a idade seja maior ou igual 18. Caso contrário, o objeto motorista não pode ser criado.
-- [ ] Quantidade de corridas realizadas - inicializado com 0.
-- [ ] Valor recebidos em corridas - inicializado com 0.
+- [ ] `Nome` - recebido como parâmetro no constructor
+- [ ] `Idade` - recebido como parâmetro no constructor. Só é possível ser motorista caso a idade seja maior ou igual 18. Caso contrário, o objeto motorista não pode ser criado.
+- [ ] `Quantidade de corridas realizadas` - inicializado com 0.
+- [ ] `Valor recebidos em corridas` - inicializado com 0.
 
 Crie outra classe chamada `Passenger`.
 
 Essa classe deve possuir os seguintes atributos:
-- [ ] Nome - recebido como parâmetro no constructor
-- [ ] Idade - recebido como parâmetro no constructor
-- [ ] Senha - recebido como parâmetro no constructor
-- [ ] Valor gasto em corridas - inicializado com 0.
+- [ ] `Nome` - recebido como parâmetro no constructor
+- [ ] `Idade` - recebido como parâmetro no constructor
+- [ ] `Senha` - recebido como parâmetro no constructor
+- [ ] `Valor gasto em corridas` - inicializado com 0.
 
 Além disso, a classe `Passenger` deve possuir os seguintes métodos:
 - [ ] `requestDrive(driver, amount, password)`, que serve para a passageira solicitar uma corrida com uma motorista específica.
