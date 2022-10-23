@@ -148,7 +148,7 @@ console.log(bankAccount1);
 bankAccount1.credit(1000); // O novo saldo da conta é: R$ 1000
 
 // Debitando dinheiro da conta
-bankAccount1.debitAmount(300); // O novo saldo da conta é: R$ 700
+bankAccount1.debit(300); // O novo saldo da conta é: R$ 700
 
 // Transferindo de uma conta para outra
 bankAccount1.transferTo(bankAccount2, 200);
