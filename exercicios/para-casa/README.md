@@ -9,6 +9,12 @@ A classe deve possuir as seguintes propriedades:
   - Recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
 
+Exemplo de um objeto Person:
+```javascript
+const person1 = new Person('Maria', 12345678900); // Instanciação de um objeto Person.
+console.log(person1); // { name: 'Maria' }
+```
+
 Defina também uma classe para um objeto `Bank`.
 O banco deve possuir as seguintes propriedades:
 - [ ] `Código`
@@ -27,6 +33,21 @@ O banco deve possuir as seguintes propriedades:
     - `Quantidade de clientes que esse banco possui`
       - Esse valor deve ser inicializado com 0 e aumentar a medida que um cliente é associado a esse banco.
 
+Exemplo:
+```javascript
+// A propriedade estática createdBanks é uma array vazia
+// antes de nenhum banco ter sido criado:
+console.log(Bank.createdBanks); // [ ]
+
+const bank1 = new Bank(100, 'LuaBank', 0.01); // Instanciação de um objeto Bank.
+console.log(bank1); // { bankCode: 100, bankName: 'LuaBank' }
+
+// Agora a propriedade estática createdBanks é uma
+// array que contém 1 objeto, que corresponde ao banco criado.
+// O objeto possui o código do banco e a quantidade de clientes (que inicialmente é 0):
+console.log(Bank.createdBanks); // [ { bankCode: 100, qtdClients: 0 } ]
+```
+
 Defina ainda uma classe `Client`, herdando da classe `Person`.
 Um cliente possui também as seguintes propriedades:
 - [ ] `Uma array de bancos ao qual é associada`
@@ -42,6 +63,20 @@ Como métodos da classe `Client`, temos:
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente tem esse banco associado a ele. Se não tiver, retorne uma mensagem e termine a execução da função.
   - Lembrar de diminuir a quantidade de clientes que esse banco possui.
+
+Exemplo:
+```javascript
+const client1 = new Client('Maria', 123); // Instanciação de um objeto Client.
+console.log(client1); // { name: 'Maria', banks: [] }
+
+// Adicionando um banco a um cliente
+client1.addBank(bank1); // Banco 100 adicionado à cliente Maria
+console.log(client1);// { name: 'Maria', banks: [ Bank { bankCode: 100, bankName: 'LuaBank' } ] }
+
+// Removendo um banco de um cliente
+client1.removeBank(bank1); // Banco 100 removido da cliente Maria
+console.log(client1); // { name: 'Maria', banks: [] }
+```
 
 Por fim, defina uma classe para um objeto `BankAccount`.
 A conta deve possuir as seguintes propriedades:
@@ -69,8 +104,7 @@ A conta deve possuir as seguintes propriedades:
   - Deve ser um parâmetro privado.
 
 - [ ] `Taxa a ser cobrada em cada retirada em bancos 24 horas`.
-  - Recebido por parâmetro durante a instanciação.
-  - Cada conta tem direito a realizar X (você define) retiradas gratuitas. Após isso, essa taxa começa a ser cobrada em cada retirada.
+  - Cada conta tem direito a realizar X (você define) retiradas gratuitas. Após isso, essa taxa (você escolhe o valor) começa a ser cobrada em cada retirada.
   - Deve ser um parâmetro privado.
 
 A classe `BankAccount` possui os seguintes métodos:
@@ -97,6 +131,34 @@ A classe `BankAccount` possui os seguintes métodos:
 - [ ] `closeAccount()`: encerra a conta.
   - Caso a conta possua saldo não é possível encerrá-la.
   - Imprima na console o resultado.
+
+Exemplo:
+```javascript
+const bankAccount1 = new BankAccount(client1, bank1, 1111, 2222); // Instanciação de um objeto BankAccount.
+console.log(bankAccount1);
+// { 
+//   client: Client { name: 'Maria', banks: [ [Bank] ] },
+//   bank: Bank { bankCode: 100, bankName: 'LuaBank' },
+//   accountNumber: 1111,
+//   agencyNumber: 2222,
+//   qtdWithdrawal: 0
+// }
+
+// Creditando
+...
+
+// Debitando
+...
+
+// Transferindo
+...
+
+// Retirando no banco 24 horas
+...
+
+// Fechando a conta
+...
+```
 
 Teste tudo o que foi criado.
 
