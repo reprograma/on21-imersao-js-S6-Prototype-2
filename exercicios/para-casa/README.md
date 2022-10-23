@@ -144,20 +144,38 @@ console.log(bankAccount1);
 //   qtdWithdrawal: 0
 // }
 
-// Creditando
-...
+// Creditando dinheiro na conta
+bankAccount1.credit(1000); // O novo saldo da conta é: R$ 1000
 
-// Debitando
-...
+// Debitando dinheiro da conta
+bankAccount1.debitAmount(300); // O novo saldo da conta é: R$ 700
 
-// Transferindo
-...
+// Transferindo de uma conta para outra
+bankAccount1.transferTo(bankAccount2, 200);
+// O saldo atual da conta de origem é de R$ 500
+// O saldo atual da conta de destino é de R$ 200
 
-// Retirando no banco 24 horas
-...
+// Retirando no banco 24 horas (cenário de 2 retiradas gratuitas)
+bankAccount1.cashWithdrawal(100);
+// As primeiras 2 retiradas são gratuitas.
+// Retirada realizada. O saldo atual da conta é de R$ 900.
+// Total de retiradas realizadas: 1
+// Você ainda possui 1 retirada gratuita.
+
+bankAccount1.cashWithdrawal(100);
+// As primeiras 2 retiradas são gratuitas.
+// Retirada realizada. O saldo atual da conta é de R$ 800.
+// Total de retiradas realizadas: 2
+// Você ainda não possui mais nenhuma retirada gratuita.
+
+bankAccount1.cashWithdrawal(100);
+// As primeiras 2 retiradas são gratuitas.
+// Retirada realizada. O saldo atual da conta é de R$ 697.
+// Total de retiradas realizadas: 3
+// Você ainda não possui mais nenhuma retirada gratuita.
 
 // Fechando a conta
-...
+bankAccount1.closeAccount(); // Conta encerrada!
 ```
 
 Teste tudo o que foi criado.
