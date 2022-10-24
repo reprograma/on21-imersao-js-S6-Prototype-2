@@ -1,26 +1,26 @@
 class FullName {
-  firstName
-  lastName
+  firstName;
+  lastName;
 
   constructor(firstName, lastName) {
-    this.firstName = firstName
-    this.lastName = lastName
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 }
 
 class Animal {
-  type
-  fullName
-  age
-  energy = 0
+  type;
+  fullName;
+  age;
+  energy = 0;
 
   constructor(type, nomeCompleto, age) {
     if (nomeCompleto instanceof FullName) {
-      this.type = type
-      this.fullName = nomeCompleto
-      this.age = age
+      this.type = type;
+      this.fullName = nomeCompleto;
+      this.age = age;
     } else {
-      throw 'fullName precisa ser instância da classe FullName'
+      throw 'fullName precisa ser instância da classe FullName';
     }
   }
 
@@ -33,7 +33,7 @@ class Animal {
   }
 }
 
-const fullNameAnimal1 = new FullName('Aslam', 'Rangel')
+const fullNameAnimal1 = new FullName('Aslam', 'Rangel');
 
-const animal1 = new Animal('cachorro', fullNameAnimal1, 3)
-console.log(animal1)
+const animal1 = new Animal('cachorro', fullNameAnimal1, 3);
+console.log(animal1);
