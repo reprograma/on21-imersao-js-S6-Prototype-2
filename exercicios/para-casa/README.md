@@ -148,7 +148,7 @@ console.log(bankAccount1);
 bankAccount1.credit(1000); // O novo saldo da conta é: R$ 1000
 
 // Debitando dinheiro da conta
-bankAccount1.debitAmount(300); // O novo saldo da conta é: R$ 700
+bankAccount1.debit(300); // O novo saldo da conta é: R$ 700
 
 // Transferindo de uma conta para outra
 bankAccount1.transferTo(bankAccount2, 200);
@@ -166,13 +166,13 @@ bankAccount1.cashWithdrawal(100);
 // As primeiras 2 retiradas são gratuitas.
 // Retirada realizada. O saldo atual da conta é de R$ 800.
 // Total de retiradas realizadas: 2
-// Você ainda não possui mais nenhuma retirada gratuita.
+// Você não possui mais nenhuma retirada gratuita.
 
 bankAccount1.cashWithdrawal(100);
 // As primeiras 2 retiradas são gratuitas.
 // Retirada realizada. O saldo atual da conta é de R$ 697.
 // Total de retiradas realizadas: 3
-// Você ainda não possui mais nenhuma retirada gratuita.
+// Você não possui mais nenhuma retirada gratuita.
 
 // Fechando a conta
 bankAccount1.closeAccount(); // Conta encerrada!
