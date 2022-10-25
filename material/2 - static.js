@@ -2,15 +2,13 @@ class Animal {
 	type;
 	name;
 	age;
-	hungry;
 	energy = 0;
 	constructor(type, name, age, hungry) {
 		this.type = type;
 		this.name = name;
 		this.age = age;
-		this.hungry = hungry;
 
-		this.constructor.animals.push(name);
+		this.constructor.animals.push({ name: name, hungry: hungry });
 	}
 
 	eat() {
@@ -23,24 +21,25 @@ class Animal {
 		console.log(`Energia atual: ${this.energy}`);
 	}
 
-	static animals = [];
+	static animals = []; //Propriedade estática
+
+	//Método estático
+	static nextToEat(animalsToEat) {
+		const sortedByHungry = animalsToEat.sort((a, b) => {
+			return b.hungry - a.hungry;
+		});
+
+		console.log(`O próximo animal a comer é: ${sortedByHungry[0].name}`);
+	}
 }
 
-console.log(Animal.animals);
+// console.log(Animal.animals);
 
 const animal1 = new Animal('cachorro', 'Aslam', 3, 10);
 const animal2 = new Animal('gato', 'Caju', 3, 15);
 const animal3 = new Animal('tigre', 'Fred', 3, 2);
 const animal4 = new Animal('coruja', 'Frida', 3, 1);
 
-console.log(Animal.animals);
-console.log(Animal.animals.length);
+// console.log(Animal.animals);
 
-const animal5 = new Animal('coruja', 'Frida', 3, 1);
-const animal6 = new Animal('coruja', 'Frida', 3, 1);
-const animal7 = new Animal('coruja', 'Frida', 3, 1);
-const animal8 = new Animal('coruja', 'Frida', 3, 1);
-const animal9 = new Animal('coruja', 'Frida', 3, 1);
-
-console.log(Animal.animals);
-console.log(Animal.animals.length);
+Animal.nextToEat(Animal.animals);
