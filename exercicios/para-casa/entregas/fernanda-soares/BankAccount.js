@@ -7,17 +7,18 @@ module.exports = class BankAccount {
   accountNumber;
   agency;
   #amount = 0;
+  numberOfWithdrawal = 0;
   #maxWithdrawal = 0;
   #feeWithdrawal;
 
-  constructor(client, bank, accountNumber, agency, feeSaque) {
+  constructor(client, bank, accountNumber, agency, feeWithdrawal) {
     if (client instanceof Client) {
       if (bank instanceof Bank) {
         this.client = client;
         this.bank = bank;
         this.accountNumber = accountNumber;
         this.agency = agency;
-        this.#feeSaque = feeSaque;
+        this.#feeWithdrawal = feeWithdrawal;
       } else return new Error(`Bank is invalid.`);
     } else return new Error(`Client is invalid.`);
   }
@@ -57,6 +58,28 @@ module.exports = class BankAccount {
   }
 
   cashWithdrawal(amount) {
-    //if(){}
+    if (amount > this.amount) {
+      let fee = 0;
+      if (this.numberOfWithdrawal >= this.#maxWithdrawal) {
+        fee = amount * (this.#feeWithdrawal / 100);
+      }
+
+      this.numberOfWithdrawal++;
+      this.debit(amount + fee);
+      console.log(`Number of withdrawals: ${this.numberOfWithdrawal}`);
+
+      const remainingWithdrawal = this.#maxWithdrawal - this.numberOfWithdrawal;
+      if (remainingWithdrawal > 0) {
+        console.log(`${remainingWithdrawal} free withdrawals remaning.`);
+      } else {
+        console.log(
+          `No more free withdrawals available. Withdrawal fee: ${this.fee}`
+        );
+      }
+    } else {
+      console.log(`Insufficient amount for opertation.`);
+    }
   }
+
+  closeAccount() {}
 };
