@@ -9,15 +9,15 @@ class Client extends Person {
   }
 
 
-  addBank(bank, client) {
+  addBank(bank) {
     if (bank instanceof Bank) {
-      const bankToAssociate = client.associatedBanks.find(bankToAssociate => bankToAssociate.bankCode === bank.bankCode)
+      const bankToAssociate = this.associatedBanks.find(bankToAssociate => bankToAssociate.bankCode === bank.bankCode)
       if (!bankToAssociate) {
-        client.associatedBanks.push({ bankCode: bank.bankCode, bankName: bank.bankName })
+        this.associatedBanks.push({ bankCode: bank.bankCode, bankName: bank.bankName })
 
         const index = Bank.createdBanks.findIndex(createdBank => createdBank.bankCode === bank.bankCode);
         Bank.createdBanks[index].qtyClients++;
-        console.log(`Bank ${bank.bankCode} added to client: ${client.name}`)
+        console.log(`Bank ${bank.bankCode} added to client: ${this.name}`)
       } else {
         console.log("You're already a client of this Bank.");
       }
