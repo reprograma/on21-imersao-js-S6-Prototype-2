@@ -27,7 +27,6 @@ class Client extends Person {
     removeBank(bank) {
         if (bank instanceof Bank) {
             if (this.associatedBanks.includes(bank)) {
-                this.associatedBanks.push(bank)
                 bank.clientQty--
                 let index = this.associatedBanks.indexOf(bank)
                 createdBanks[index].clientQty--
@@ -47,7 +46,7 @@ module.exports = Client
 // console.log('CREATED BANKS INIT', Bank.createdBanks)
 // const bank1 = new Bank(100, 'LuaBank', 0.01);
 // const bank2 = new Bank(200, 'Nubank', 0.01);
-// const bank3 = new Bank(200, 'RSIBank', 0.01);
+// const bank3 = new Bank(300, 'RSIBank', 0.01);
 
 
 // const client1 = new Client('Renata', 123)
@@ -68,18 +67,22 @@ module.exports = Client
 // client3.addBank(bank2)
 
 // client4.addBank(bank1)
+// client4.addBank(bank3)
 
 // client5.addBank(bank1)
 
-// // client1.addBank(bank2)
+// // // client1.addBank(bank2)
 // console.log('BEFORE REMOVE BANK', Bank.createdBanks)
+// console.log('CLIENT BANK', client1.associatedBanks)
 
-// // console.log(client1);
-// // console.log(client2);
-// // console.log(client5);
+// // // console.log(client1);
+// // // console.log(client2);
+// // // console.log(client5);
 
-// client1.removeBank(bank1)
+// // client1.removeBank(bank1)
 // client1.removeBank(bank2)
+// console.log('AFTER REMOVE BANK', Bank.createdBanks)
+// console.log('CLIENT BANK', client1.associatedBanks)
 // console.log('AFTER REMOVE BANK', Bank.createdBanks)
 
 // client1.removeBank(bank1)
