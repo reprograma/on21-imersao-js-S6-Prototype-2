@@ -29,12 +29,11 @@ class Client extends Person {
 
   removeBank(bank) {
     if (bank instanceof Bank) {
-      const bankToDisassociate = this.associatedBanks.find(bankToDisassociate => bankToDisassociate.bankCode === bank.bankCode)
-      const index = this.associatedBanks.indexOf(bankToDisassociate)
-      if (!bankToDisassociate) {
+      const index = this.associatedBanks.findIndex(createdBank => createdBank.bankCode === bank.bankCode);
+      if (index === -1) {
         console.log('Bank not found.');
       } else {
-        this.associatedBanks.splice(bankToDisassociate, 1)
+        this.associatedBanks.splice(index, 1)
         console.log(`Bank ${bank.bankCode} successfully disassociated.`);
         Bank.createdBanks[index].qtyClients--
       }
