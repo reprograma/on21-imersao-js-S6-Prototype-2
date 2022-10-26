@@ -10,7 +10,6 @@ class Motorista {
             this.idade = idade
 
             this.constructor.listaMotoristas.push({ nome: this.nome, idade: this.idade })
-            this.constructor.contadorTotalMotoristas += 1
             this.constructor.mediaIdadeMotoristas(this.listaMotoristas)
         } else {
             return new Error(
@@ -20,25 +19,30 @@ class Motorista {
     }
 
     static listaMotoristas = []
-    static contadorTotalMotoristas = 0
     static mediaIdadeMotoristas() {
         var soma = 0
         for (let i = 0; i < this.listaMotoristas.length; i++) {
-            soma += this.listaMotoristas[i].idade   
+            soma += this.listaMotoristas[i].idade
         }
 
-        var media = soma / this.listaMotoristas.length 
+        var media = soma / this.listaMotoristas.length
 
         return `A média de idade das passageiras é de: ${media} anos`
+    }
+
+
+    static totalMotoristas() {
+        return `O total de passageiras cadastradas é de: ${this.listaMotoristas.length}`
+
     }
 }
 
 const Mymy = new Motorista('Mymy', 50)
 const Josi = new Motorista('Josi', 20)
 
-// console.log(Motorista.listaMotoristas);
-// console.log(Motorista.contadorTotalMotoristas);
-// console.log(Motorista.mediaIdadeMotoristas());
+console.log(Motorista.listaMotoristas);
+console.log(Motorista.totalMotoristas());
+console.log(Motorista.mediaIdadeMotoristas());
 
 
 // ******************************************************************
@@ -56,7 +60,6 @@ class Passageira {
         this.senha = senha
 
         this.constructor.listaPassageiras.push({ nome: this.nome, idade: this.idade })
-        this.constructor.totalPassageiras += 1
         this.constructor.mediaIdadePassageiras(this.listaPassageiras)
 
     }
@@ -81,22 +84,26 @@ class Passageira {
     static mediaIdadePassageiras() {
         var soma = 0
         for (let i = 0; i < this.listaPassageiras.length; i++) {
-            soma += this.listaPassageiras[i].idade   
+            soma += this.listaPassageiras[i].idade
         }
 
-        var media = soma / this.listaPassageiras.length 
+        var media = soma / this.listaPassageiras.length
 
         return `A média de idade das passageiras é de: ${media} anos`
     }
 
-    static totalPassageiras = 0
+    static totalPassageiras() {
+        return `O total de passageiras cadastradas é de: ${this.listaPassageiras.length}`
+
+    }
+
 }
 
 const Debora = new Passageira('Débora', 25, 123456)
 const Paty = new Passageira('Paty', 22, 12345)
 
-// console.log(Passageira.listaPassageiras);
-// console.log(Passageira.totalPassageiras);
-// console.log(Passageira.mediaIdadePassageiras());
+console.log(Passageira.listaPassageiras);
+console.log(Passageira.totalPassageiras());
+console.log(Passageira.mediaIdadePassageiras());
 
 
