@@ -582,8 +582,55 @@ console.log(user1.#encryptPassword()); //ERRO: A propriedade '#encryptPassword' 
 
 #### Get e Set
 
-No JavaScript, quando temos parâmetros privados, podemos utilizar o que chamamos de Getters e Setters.
+As classes JavaScript contam com dois métodos especiais:
+- um com o prefixo `get`, que tem a função de **retornar um valor** de um parâmetro.
+- outro com prefixo `set` que serve para **atribuir um valor** a um parâmetro.
 
+Nós chamamos eles de Getters e Setters, pois eles tem a **função** de fazer um `get` (pegar) ou um `set` (atribuir).
+Ambos funcionam como se fossem uma propriedade da classe.
+
+Esses métodos são ideais para serem utilizados, quando temos parâmetros privados.
+
+```javascript
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	speak() {
+		console.log(`A pessoa de nome ${this.name} está falando`);
+	}
+}
+
+class User extends Person {
+	#password;
+	constructor(name, age, email, password) {
+		super(name, age);
+		this.email = email;
+		this.#password = password;
+	}
+
+	speak() {
+		super.speak();
+		console.log(`A pessoa que está falando é uma usuária.`);
+	}
+
+	#encryptPassword() {
+		return (this.#password = `*** ${this.#password} + ***`);
+	}
+
+	get password() {
+		//Aqui dentro, podemos ter verificações antes de retornar a senha para quem está pedindo, para tornar a nossa aplicação mais segura
+		return this.#password
+	}
+
+	set password(newPassword) {
+		//Aqui dentro, podemos ter verificações antes de trocar a senha para quem está solicitando a troca, para tornar a nossa aplicação mais segura
+		this.#password = newPassword
+	}
+}
+```
 
 #### → Vamos aplicar? [Exercício 4](/exercicios/para-sala/exercicio-4)
 
@@ -600,7 +647,8 @@ No JavaScript, quando temos parâmetros privados, podemos utilizar o que chamamo
 
 ### Links Úteis
 
--
+- [Playlist de milhões](https://open.spotify.com/playlist/14rUpFrriVs08gUdjrxAeg?si=da47a580356d4ce4)
+- [Playlist proibidão 🤫](https://open.spotify.com/playlist/1hNtTxH7sh12qYWwKyhdb8?si=d3a82f7d95a74cc9)
 
 ### Contatos
 
