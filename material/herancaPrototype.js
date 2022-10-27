@@ -19,7 +19,6 @@ class User extends Person {
         super(name, age);
         this.email = email;
         this.password = password;
-
     }
 
     speak(city) {
