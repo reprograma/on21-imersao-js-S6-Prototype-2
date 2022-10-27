@@ -1,5 +1,5 @@
-import Bancos from "./Bancos"
-import Cliente from "./Cliente"
+const Bancos = require("./Bancos.js")
+const Cliente = require("./Cliente.js")
 
 class ContaBancaria {
     #saldo = 0
@@ -51,15 +51,15 @@ class ContaBancaria {
 
     depositar(valor) {
         this.#saldo += valor
-        return `Depósito no valor de ${valor} realizado com sucesso`
+        console.log(`Depósito no valor de ${valor} realizado com sucesso`)
     }
 
     sacar(valor) {
         if (valor <= this.#saldo) {
             this.#saldo -= valor
-            return `Saque realizado no valor de ${valor}`
+            console.log(`Saque realizado no valor de ${valor}`)
         } else {
-            return 'Você não possui saldo suficiente.'
+            return new Error('Você não possui saldo suficiente.')
         }
     }
 
@@ -67,9 +67,9 @@ class ContaBancaria {
         if (conta instanceof ContaBancaria) {
             this.sacar(valor)
             conta.depositar(valor)
-            return `Deposito realziado com sucesso no valor de: ${valor}`
+            console.log(`Deposito realziado com sucesso no valor de: ${valor}`)
         } else {
-            return 'Não foi possível realizar a transferência.'
+            return new Error('Não foi possível realizar a transferência.')
         }
     }
 
@@ -81,27 +81,30 @@ class ContaBancaria {
                 let saquesRestantes = this.#limiteSaquesGratuitos - this.#retirada24h
                 if (saquesRestantes > 0) {
                     this.sacar(valor)
-                    return `Saque realizado com sucesso. Você realizou ${this.#retirada24h} saque(s) gratuito(s) este mês. Ainda restam ${saquesRestantes} saque(s) gratuitos.`
+                    console.log(`Saque realizado com sucesso. Você realizou ${this.#retirada24h} saque(s) gratuito(s) este mês. Ainda restam ${saquesRestantes} saque(s) gratuitos.`
+                    )
                 } else if (saquesRestantes === 0) {
                     this.sacar(valor)
-                    return `Saque realizado com sucesso. Não há mais saques gratuitos disponiveis. A partir do próximo saque será cobrada uma taxa de R$${this.#taxaSaque24h}`
+                    console.log(`Saque realizado com sucesso. Não há mais saques gratuitos disponiveis. A partir do próximo saque será cobrada uma taxa de R$${this.#taxaSaque24h}`
+                    )
                 } else {
                     let valorTaxado = valor * this.#taxaSaque24h
                     this.sacar(valorTaxado)
                     this.#retirada24h ++
-                    return `Saque realizado com sucesso. Taxa de transferência aplicada: R$${this.#taxaSaque24h}0`
+                    console.log(`Saque realizado com sucesso. Taxa de transferência aplicada: R$${this.#taxaSaque24h}0`
+                    )
                 }
             }
         } else {
-            return 'Você não possui saldo suficiente para realizar o saque.'
+            return new Error('Você não possui saldo suficiente para realizar o saque.')
         }
     }
 
     encerrarConta() {
         if (this.#saldo === 0) {
-            return 'Conta encerrada com sucesso'
+            console.log('Conta encerrada com sucesso')
         } else {
-            return 'Para encerrar sua conta é necessário que o saldo esteja zerado.'
+            return new Error('Para encerrar sua conta é necessário que o saldo esteja zerado.')
         }
     }
 

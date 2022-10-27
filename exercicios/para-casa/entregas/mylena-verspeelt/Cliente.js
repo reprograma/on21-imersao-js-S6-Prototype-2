@@ -1,5 +1,5 @@
-import Bancos from "./Bancos"
-import Pessoa from "./Pessoa"
+const Bancos = require("./Bancos.js")
+const Pessoa = require("./Pessoa.js")
 
 class Cliente extends Pessoa {
 
@@ -9,31 +9,37 @@ class Cliente extends Pessoa {
         super(nome)
     }
 
+
     addBanco(banco) {
-        if (this.listaBancos.find(banco => banco)) {
-            return 'Não é possível adicionar este banco pois o mesmo já foi adicionado anteriormente.'
-        } else if (banco instanceof Bancos) {
-            this.listaBancos.push({ codigo: banco.codigo, nomeBanco: banco.nomeBanco })
-            //  ADICIONAR LOGICA DE AUMENTAR QTD DE BANCOS
-            return `Banco ${banco.nomeBanco} adicionado a cliente ${this.nome}`
+        if (banco instanceof Bancos) {
+            if (this.listaBancos.find(({ nomeBanco }) => nomeBanco === banco.nomeBanco)) {
+                console.log('Não é possível adicionar este banco pois o mesmo já foi adicionado anteriormente.')
+            } else {
+                this.listaBancos.push({ codigo: banco.codigo, nomeBanco: banco.nomeBanco })
+                Bancos.totalBancosCriados++
+                console.log(`Banco ${banco.nomeBanco} adicionado a cliente ${this.nome}`)
+            }
         } else {
             return new Error('Não foi possível vincular um banco.')
         }
     }
 
     removerBanco(banco) {
-        if (this.listaBancos.find(({ nomeBanco }) => nomeBanco === banco.nomeBanco)) {
-            if (banco instanceof Bancos) {
-                this.listaBancos.pop(banco.codigo)
-                this.listaBancos.pop(banco.nomeBanco)
-                return `Banco ${banco.nomeBanco} removido com sucesso!`
+        if (banco instanceof Bancos) {
+            if (this.listaBancos.find(({ nomeBanco }) => nomeBanco === banco.nomeBanco)) {
+                let elemento = this.listaBancos.findIndex(obj => obj.nomeBanco === banco.nomeBanco)
+                this.listaBancos.splice(elemento, 1)
+                Bancos.totalBancosCriados--
+                console.log(`Banco ${banco.nomeBanco} removido com sucesso!`)
+            } else {
+                return new Error('Não foi possível remover a conta pois você não possui conta no mesmo.')
             }
         } else {
-            return new Error('Não foi possível remover a conta pois você não possui conta no mesmo.')
+            return new Error('Banco inválido')
         }
-
-        // REMOVER 1 PONTO NA QTDE DE BANCOS
     }
 }
+
+
 
 module.exports = Cliente
