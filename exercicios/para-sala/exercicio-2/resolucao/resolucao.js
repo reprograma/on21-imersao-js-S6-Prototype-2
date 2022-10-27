@@ -21,7 +21,13 @@ class Driver {
     static numberofDrivers(motoristas){
         console.log(`O total de motorista cadastradas é : ${motoristas.length}`);
     }
-    
+
+    static ageAverage(motoristas){
+        const somaIdade = motoristas.reduce((total, next) => total + next.idade , 0);
+        const totalMototistas = motoristas.length;
+        const mediaIdade = somaIdade / totalMototistas;
+        console.log(`A média de idade das motoristas é de: ${mediaIdade.toFixed(0)}`);
+    }
 }
 
 class Passenger {
@@ -42,6 +48,13 @@ class Passenger {
 
     static numberofPassengers(passageiras){
         console.log(`O total de passageiras cadastradas é : ${passageiras.length}`);
+    }
+
+    static ageAverage(passageiras){
+        const somaIdade = passageiras.reduce((total, next) => total + next.age , 0);
+        const totalPassageiras = passageiras.length;
+        const mediaIdade = somaIdade / totalPassageiras;
+        console.log(`A média de idade das passageiras é de: ${mediaIdade.toFixed(0)}`);
     }
 
     requestDrive(motorista, valor, senha){
@@ -76,3 +89,4 @@ console.log(motorista1);
 
 Driver.numberofDrivers(Driver.drivers);
 Passenger.numberofPassengers(Passenger.passengers);
+Driver.ageAverage(Driver.drivers);
