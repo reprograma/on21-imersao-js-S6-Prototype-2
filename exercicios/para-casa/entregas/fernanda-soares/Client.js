@@ -22,9 +22,7 @@ module.exports = class Client extends Person {
           }
         }
 
-        console.log(
-          `Client ${this.name} successfully associated to the bank ${bank.name}.`
-        );
+        console.log(`Client ${this.name} associated to the bank ${bank.name}.`);
       } else {
         console.log(`Client already associated with this bank.`);
       }
@@ -47,7 +45,7 @@ module.exports = class Client extends Person {
         }
 
         console.log(
-          `Client ${this.name} successfully dissociated to the bank ${bank.name}.`
+          `Client ${this.name} dissociated to the bank ${bank.name}.`
         );
       } else {
         console.log(`Client already dissociated with this bank.`);
