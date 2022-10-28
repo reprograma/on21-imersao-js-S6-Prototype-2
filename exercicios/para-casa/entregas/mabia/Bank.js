@@ -16,4 +16,5 @@ class Bank {
   static bankCreated = [];
 }
 
+
 module.exports = { Bank };
