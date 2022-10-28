@@ -23,12 +23,21 @@ class Client extends Person {
     }
   }
 
-  removeBank(){
-    
+  removeBank(bank) {
+    if (bank instanceof Bank) {
+      const bankAssociated = this.listBanks.findIndex(bankFound => bankFound.code === bank.code);
+      if (bankAssociated === -1) {
+        console.log('This bank is not associated.');
+      } else {
+        this.listBanks.splice(bankAssociated, 1)
+        console.log(`Bank successfully disassociated.`);
+      }
+    } else {
+      console.log('Error: The bank must be of type Bank.')
+    }
   }
 
 }
-
 
 
 module.exports = Client;
