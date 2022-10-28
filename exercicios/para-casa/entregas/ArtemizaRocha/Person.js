@@ -8,6 +8,10 @@ class Person {
    
    } 
 
+get(){
+
+return this.#cpf;
+
 }
 
  
