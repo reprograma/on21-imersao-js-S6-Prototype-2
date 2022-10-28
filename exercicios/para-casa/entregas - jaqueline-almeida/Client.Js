@@ -1,5 +1,5 @@
 const Bank = require('./Bank');
-const Person = require ('./Person')
+const Person = require('./Person')
 
 
 class Client extends Person{
