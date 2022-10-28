@@ -12,6 +12,6 @@ class Person {
 }
 
 // const person1 = new Person('Maria', 12345678900)
-// console.log(person1); //Person { name: 'Maria' }
+// console.log(person1); // Person { name: 'Maria' }
 
 module.exports = { Person };
