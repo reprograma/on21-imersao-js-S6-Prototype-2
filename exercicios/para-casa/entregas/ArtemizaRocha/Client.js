@@ -19,7 +19,7 @@ constructor(name, cpf){
          } else {
            this.banks.push(bank);
           let indexBank = this.banks.findIndex((banks) => banks.code === bank.code);
-          Bank.createdBanks[indexBank].qtdClients++;
+          Bank.createBanks[indexBank].qtdClients++;
         }
       
       } else {
@@ -41,7 +41,7 @@ constructor(name, cpf){
             this.banks.findIndex((bank) => bank);
             let indexBank = this.banks.findIndex((banks) => banks.code === bank.code
             );
-            Bank.createdBanks[indexBank].qtdClients--;
+            Bank.createBanks[indexBank].qtdClients--;
           }
         } else {
           console.log("This bank does not exist");
@@ -51,7 +51,23 @@ constructor(name, cpf){
       
       }
   
+const santander = new Bank(320, 'Santander', 2.30);
+const itau = new Bank(200, 'Itau', 5.60);
+ const cliente1 = new Client('Iza', 22255);
+ const cliente2 = new Client('Leyli', 33344);
 
+cliente1.addBank(santander);
+cliente1.addBank(itau);
+cliente2.addBank(itau);
+console.log(cliente2);
+console.log(Bank);
+
+cliente2.removeBank(itau);
+
+
+console.log(cliente1);
+console.log(cliente2);
+console.log(Bank);
     
 
 module.exports = Client;
