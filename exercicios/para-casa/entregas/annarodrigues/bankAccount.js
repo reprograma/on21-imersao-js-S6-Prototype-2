@@ -2,22 +2,22 @@ const Client = require("./client");
 const Bank = require ("./bank");
 
 class BankAccount {
-    cdcliente;
-    cdbanco;
-    nrconta;
-    nragencia;
+    cdCliente;
+    cdBanco;
+    nrConta;
+    nrAgencia;
     #saldo =0;
-    #qtretirada =0;
-    #txretidada = 4;
-    #qtdretirada24h = 4;
+    #qtRetirada =0;
+    #txRetidada = 4;
+    #qtdRetirada24h = 4;
 
-    constructor(cliente , banco , nrconta , nragen ){
+    constructor(cliente , banco , nrConta , nrAgencia ){
         if(cliente instanceof Client){
             if(banco instanceof Bank) {
-            this.cdcliente = cliente;
-            this.cdbanco = banco;
-            this.nragencia = nragen;
-            this.nrconta= nrconta;
+            this.cdCliente = cliente;
+            this.cdBanco = banco;
+            this.nrAgencia = nrAgencia;
+            this.nrConta= nrConta;
             }
             else
             { throw "Banco não encontrado";}
@@ -32,16 +32,21 @@ class BankAccount {
     }
 
     Debit(valor){
+      const novoSaldo = this.#saldo -valor;  
+      
+      if(novoSaldo< 0)
+        {console.log ('Valor não pode ser debitado');}
+      else
         this.#saldo -=valor;
-        console.log("Novo saldo da conta, após o débito", this.#saldo )     
+        {console.log("Novo saldo da conta, após o débito", this.#saldo )}     
     }
 
     transferTo(outraConta, saldo) {
-        if (outraConta instanceof BankAccount && this.#saldo >= saldo) {
-          if (outraConta.bank.code === this.bank.code) {
+    if (outraConta instanceof BankAccount && this.#saldo >= saldo) {
+          if (outraConta.cdBanco.codigo === this.cdBanco.codigo) {
             this.#saldo -= saldo;
           } else {
-            this.#saldo = this.#saldo - saldo - saldo * this.bank.txtrans;
+           this.#saldo = this.#saldo - saldo - (saldo * this.cdBanco.txTransferencia);
           }
     
           outraConta.#saldo = saldo;
@@ -59,14 +64,15 @@ class BankAccount {
         if (this.#saldo < saldo) {
           console.log("Você não possui saldo para sacar");
         } else {
-          this.#qtretirada++;
+          this.#qtRetirada++;
     
-          if (this.#qtretirada <= this.#qtdretirada24h) {
+          if (this.#qtRetirada <= this.#qtdRetirada24h) {
             this.#saldo -= saldo;
           } else {
-            this.#saldo = this.#saldo - saldo - this.#txretidada;
+   
+             this.#saldo = this.#saldo - saldo - (saldo*this.cdBanco.txTransferencia);
           }
-          const contador = this.#qtdretirada24h - this.#qtretirada;
+          const contador = this.#qtdRetirada24h - this.#qtRetirada;
           let textoResultado = "";
           if (contador > 0) {
             textoResultado = `Você ainda possui ${contador} retirada(s) gratuitas`;
@@ -74,9 +80,9 @@ class BankAccount {
             textoResultado = "Você não possui mais nenhuma retirada gratuita.";
           }
           console.log(
-            `As primeiras ${this.#qtdretirada24h} retiradas são gratuitas.
+            `As primeiras ${this.#qtdRetirada24h} retiradas são gratuitas.
           Retirada realizada. O saldo atual da conta é de R$ ${this.#saldo}.
-          Total de retiradas realizadas: ${this.#qtretirada}
+          Total de retiradas realizadas: ${this.#qtRetirada}
          ${textoResultado}`
           );
         }
@@ -87,7 +93,7 @@ class BankAccount {
           console.log("A conta não pode ser encerrada");
         } else {
           console.log("Conta encerrada");
-          this.cdcliente.removeBank(this.banco);
+          this.cdCliente.removeBank(this.banco);
         }
       }
     }
