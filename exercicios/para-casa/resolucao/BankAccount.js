@@ -50,6 +50,11 @@ class BankAccount {
 			let amountToBeDebited = amount;
 			if (this.bank.bankCode !== anotherAccount.bank.bankCode) {
 				amountToBeDebited = amount + amount * this.bank.transferTax;
+				console.log(
+					`Essa transferência terá uma taxa de ${
+						this.bank.transferTax * 100
+					}%, pois se trata de uma transferência entre bancos diferentes.`
+				);
 			}
 			if (this.#amount >= amountToBeDebited) {
 				this.debitAmount(amountToBeDebited);
@@ -63,7 +68,7 @@ class BankAccount {
 				console.log(
 					`Saldo insuficiente para realizar a transferência. Seu saldo atual é de ${
 						this.#amount
-					}`
+					}. Para realizar essa transferência você precisa ter ${amountToBeDebited} em conta.`
 				);
 			}
 		} else {
