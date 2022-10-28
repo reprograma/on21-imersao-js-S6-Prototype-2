@@ -647,7 +647,8 @@ class User extends Person {
 
 ### Links Úteis
 
--
+- [Playlist de milhões](https://open.spotify.com/playlist/14rUpFrriVs08gUdjrxAeg?si=da47a580356d4ce4)
+- [Playlist proibidão 🤫](https://open.spotify.com/playlist/1hNtTxH7sh12qYWwKyhdb8?si=d3a82f7d95a74cc9)
 
 ### Contatos
 
