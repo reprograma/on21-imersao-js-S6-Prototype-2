@@ -1,14 +1,16 @@
 class Bank{
     codigo;
     nome;
-    #txtrans;
-    constructor(codigo,nome, txtrans){
+    #txTransferencia;
+    constructor(codigo,nome, txTransferencia){
         this.nome = nome;
         this.codigo=codigo;
-        this.#txtrans = txtrans;
-       this.constructor.createBank.push({ code: codigo, qtdClients: 0 });
+        this.#txTransferencia = txTransferencia;
+        this.constructor.createBank.push({ code: codigo, qtdClients: 0 });
         
     }
+
+    get txTransferencia() {return this.#txTransferencia ;}
 
     static createBank = [];
 }

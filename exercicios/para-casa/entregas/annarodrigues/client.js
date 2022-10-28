@@ -19,21 +19,24 @@ class Client extends Person{
             }
         }
         else
-        {return new Error( 'Banco não existe');}
+        {console.log( 'Banco não existe');}
     }
 
 
     removeBank(bank){
         if (bank instanceof Bank){
                const auxIndex = this.bancos.indexOf(bank);
+               const nomeBanco =  this.bancos[auxIndex].nome;
                if (auxIndex != -1) {
                 this.bancos = this.bancos.filter((b) => b.codigo != bank.codigo);
                 Bank.createBank[auxIndex].qtdClients--;
+                console.log( `Banco ${nomeBanco} removido`)
                 }
                  else
-                 { return new Error( 'Cliente não possui esse Banco');}
+                 {      
+                    console.log( 'Cliente não possui esse Banco');}
         }
-        else{ return new Error( 'Banco não encontrado');}
+        else{ console.log('Banco não encontrado');}
     }
 }
 
