@@ -38,7 +38,6 @@ class Driver extends Person {
 
 class Passenger extends Person {
     password;
-    amount = 0;
 
     constructor(name, age, password) {
         super(name, age)
