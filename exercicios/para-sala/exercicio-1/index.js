@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //exercicios feitos pela profa aqui
 
 class Driver {
@@ -68,3 +69,37 @@ const passageira3 = new Passenger('Claudia', 25, 333);
 // console.log('Motorista 1: ', motorista1);
 
 passageira3.requestRide(motorista3, 23, 333);
+=======
+class Animal{
+    type;
+    name;
+    age;
+    constructor(type, name, age ,energy)
+    {
+        this.type = type;
+        this.name = name;
+        this.age = age;
+        this.energy = energy;
+        this.constructor.animals.push(name);
+    }
+    
+     static animals = [];
+    eat(){
+        console.log(`O ${this.type} chamado ${this.name} está comendo`);
+    }
+
+    sleep(){
+        console.log(`O ${this.type} chamado ${this.name} está dormindo`);
+		this.energy += hours;
+		console.log(`Energia atual: ${this.energy}`);
+    }
+}
+
+
+const animal1 = new Animal('cachorro', 'Asisam', 3,9);
+
+console.log(Animal.animals)
+//console.log(animal1.eat())
+
+//console.log(animal1 instanceof Animal)
+>>>>>>> annarodrigues
