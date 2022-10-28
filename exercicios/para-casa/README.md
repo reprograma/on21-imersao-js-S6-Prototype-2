@@ -2,26 +2,26 @@
 
 Defina uma função construtora no modelo ES6 Instantiation (classe) para um objeto `Person`.
 A classe deve possuir as seguintes propriedades:
-- [ ] `Nome`
+- [x] `Nome`
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `CPF`
+- [x] `CPF`
   - Recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
 
 Defina também uma classe para um objeto `Bank`.
 O banco deve possuir as seguintes propriedades:
-- [ ] `Código`
+- [x] `Código`
   - Número do banco, recebido por parâmetro durante a instanciação.
 
-- [ ] `Nome`
+- [x] `Nome`
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `Taxa de transferência para outros bancos`
+- [x] `Taxa de transferência para outros bancos`
   - Recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
 
-- [ ] `Bancos criados`
+- [x ] `Bancos criados`
   - Propriedade estática, sendo ela uma array de objetos que é inicialmente vazia e é atualizada a cada vez que um novo banco é criado, contendo:
     - `Código do banco criado`
     - `Quantidade de clientes que esse banco possui`
@@ -29,58 +29,58 @@ O banco deve possuir as seguintes propriedades:
 
 Defina ainda uma classe `Client`, herdando da classe `Person`.
 Um cliente possui também as seguintes propriedades:
-- [ ] `Uma array de bancos ao qual é associada`
+- [x ] `Uma array de bancos ao qual é associada`
   - Deve ser inicializado vazio.
 
 Como métodos da classe `Client`, temos:
-- [ ] `addBank(bank)`: associa um banco a esse cliente.
+- [x ] `addBank(bank)`: associa um banco a esse cliente.
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente já tem esse banco associado a ele. Se tiver, retorne uma mensagem e não adicione novamente.
   - Lembrar de aumentar a quantidade de clientes que esse banco possui.
 
-- [ ] `removeBank(bank)`: desassocia um banco a esse cliente.
+- [ x] `removeBank(bank)`: desassocia um banco a esse cliente.
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente tem esse banco associado a ele. Se não tiver, retorne uma mensagem e termine a execução da função.
   - Lembrar de diminuir a quantidade de clientes que esse banco possui.
 
 Por fim, defina uma classe para um objeto `BankAccount`.
 A conta deve possuir as seguintes propriedades:
-- [ ] `Cliente a qual essa conta pertence`:
+- [x ] `Cliente a qual essa conta pertence`:
   - O parâmetro deve obrigatoriamente ser do tipo `Client`.
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `Banco`:
+- [ x] `Banco`:
   - O parâmetro deve obrigatoriamente ser do tipo `Bank`.
   - A conta só pode ser criada caso a pessoa seja cliente desse banco.
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `Número da conta`
+- [ x] `Número da conta`
   - Recebido por parâmetro durante a instanciação.
   
-- [ ] `Número da agência bancária`
+- [ x] `Número da agência bancária`
   - Recebido por parâmetro durante a instanciação.
   
-- [ ] `Um montante`
+- [x ] `Um montante`
   - Deve ser inicializado com 0.
   - Deve ser um parâmetro privado, mas pode ser mostrado quando solicitado.
 
-- [ ] `Quantidade de retiradas de dinheiro em bancos 24 horas`
+- [ x] `Quantidade de retiradas de dinheiro em bancos 24 horas`
   - Deve ser inicializado com 0.
   - Deve ser um parâmetro privado.
 
-- [ ] `Taxa a ser cobrada em cada retirada em bancos 24 horas`.
+- [ x] `Taxa a ser cobrada em cada retirada em bancos 24 horas`.
   - Recebido por parâmetro durante a instanciação.
   - Cada conta tem direito a realizar X (você define) retiradas gratuitas. Após isso, essa taxa começa a ser cobrada em cada retirada.
   - Deve ser um parâmetro privado.
 
 A classe `BankAccount` possui os seguintes métodos:
-- [ ] `credit(amount)`: adiciona o valor especificado ao montante.
+- [ x] `credit(amount)`: adiciona o valor especificado ao montante.
   - Imprima na console o resultado.
 
-- [ ] `debit(amount)`: subtrai o valor especificado do montante.
+- [x] `debit(amount)`: subtrai o valor especificado do montante.
   - Imprima na console o resultado.
 
-- [ ] `transferTo(anotherAccount, amount)`: transfere o valor especificado desta conta para a outra conta.
+- [x ] `transferTo(anotherAccount, amount)`: transfere o valor especificado desta conta para a outra conta.
   - O parâmetro `anotherAccount` deve obrigatoriamente ser do tipo `BankAccount`.
   - Caso não haja valor suficiente para a operação, ela deve retornar uma mensagem para o usuário.
   - Caso a transferência seja para um banco diferente do cliente que está realizando, utilize a taxa do banco de origem.
