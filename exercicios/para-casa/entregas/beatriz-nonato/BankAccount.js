@@ -69,6 +69,15 @@ class BankAccount {
             Total de retiradas realizadas: ${this.qtdWithdrawal} ${resultDescription}`
             )
     }
+
+    closeAccount() {
+        if (this.#amount > 0) {
+          console.log("A conta não pode ser encerrada, pois ainda existe saldo");
+        } else {
+          console.log("Conta encerrada com sucesso");
+          this.client.removeBank(this.bank);
+        }
+    }
 }
 
         
