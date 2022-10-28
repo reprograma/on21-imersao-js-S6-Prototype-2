@@ -1,7 +1,8 @@
 class BankAccount {
     #amount = 0;
     #qtdWithdrawal = 0;
-    #taxWithdral = 3;
+    #qtdWithdrawal24h = 3;
+    #taxWithdral = 5;
     
     constructor(client, bank, accountNumber, agencyNumber) {
         this.client = client;
@@ -41,15 +42,34 @@ class BankAccount {
                     }`
                     );
                 }
-            }    
-}
-        
-// const newBankAccount = new BankAccount('Bea', 'Nu', '0001', '05366')
-// const newBankAccount2 = new BankAccount('Be', 'N', '000', '053')
-// console.log(newBankAccount)
-// newBankAccount.credit(500)
-// newBankAccount.debit(450)
-// newBankAccount2.credit(1000)
-// newBankAccount.transferTo(newBankAccount2, 500)
+    }
 
+    cashWithdrawal(amount) {
+        if (this.#amount < amount) {
+                    console.log('Saldo insuficiente para saque')
+            } else {
+                this.qtdWithdrawal24h++
+            } if (this.#qtdWithdrawal <= this.#qtdWithdrawal) {
+                this.#amount -= amount
+            } else {
+                this.#amount = this.#amount - amount - (amount * this.bank.transferTax)
+            }
+
+            const counter = this.#qtdWithdrawal - this.qtdWithdrawal24h
+            let resultDescription = ''
+
+            if (counter > 0) {
+                resultDescription = `Você possui ${counter} retiradas gratuitas.`
+            } else {
+                resultDescription = 'Retiradas gratuitas esgotadas'
+            }
+
+            console.log(`As primeiras ${this.qtdWithdrawal24h} retiradas são gratuitas. 
+            Retirada realizada. O saldo atual da conta é R$${this.qtdWithdrawal}.
+            Total de retiradas realizadas: ${this.qtdWithdrawal} ${resultDescription}`
+            )
+    }
+}
+
+        
 module.exports = BankAccount;
