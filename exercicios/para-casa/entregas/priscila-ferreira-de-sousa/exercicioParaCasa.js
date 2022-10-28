@@ -1,116 +1,9 @@
-class Pessoa {
-    nome;
-    #cpf;
-    constructor(nome, cpf) {
-        this.nome = nome;
-        this.#cpf = cpf;
-    }
+const { Banco } = require('./Banco');
+const { Cliente } = require('./Cliente');
+const { ContaBanco } = require('./ContaBanco');
 
-    get cpf() {
-        return this.#cpf;
-    }
 
-    set cpf(cpf) {
-        this.#cpf = cpf;
-    }
-
-    get nome() {
-        return this.nome;
-    }
-
-    set nome(nome) {
-        this.nome = nome;
-    }
-}
-console.log(new Pessoa('Monalisa', '423.578.544-12'));
-
-class Banco {
-    codigo;
-    nome;
-    #taxaTransferencia;
-    quantidadeClientes;
-    constructor(codigo, nome, taxaTransferencia) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.taxaTransferencia = taxaTransferencia;
-        this.quantidadeClientes = 0;
-        this.constructor.bancosCriados.push({ codigo: codigo, nome: nome, quantidadeClientes: this.quantidadeClientes /* Adicionar quantidade de clientes aqui */ });
-    }
-
-    static bancosCriados = [];
-
-    static getIndexBancoCriado(banco, array) {
-        return array.findIndex(b => b.codigo === banco.codigo && b.nome === banco.nome);
-    }
-
-    static atualizarQuantidadeClientes(banco, aumentar = true) {
-        let indexBanco = Banco.getIndexBancoCriado(banco, Banco.bancosCriados);
-        if (aumentar) {
-            banco.quantidadeClientes++;
-        } else {
-            banco.quantidadeClientes--;
-        }
-
-        if (indexBanco !== -1) {
-            Banco.bancosCriados[indexBanco] = banco;
-        }
-    }
-
-    get codigo() {
-        return this.codigo;
-    }
-
-    set codigo(codigo) {
-        this.codigo = codigo;
-    }
-
-    get nome() {
-        return this.nome;
-    }
-
-    set nome(nome) {
-        this.nome = nome;
-    }
-
-    get taxaTransferencia() {
-        return this.#taxaTransferencia;
-    }
-
-    set taxaTransferencia(taxaTransferencia) {
-        this.#taxaTransferencia = taxaTransferencia;
-    }
-}
-
-class Cliente extends Pessoa {
-    bancos;
-    constructor(nome, cpf) {
-        super(nome, cpf);
-        this.bancos = [];
-    }
-
-    addBank(banco) {
-        if (banco instanceof Banco) {
-            if (this.bancos.includes(banco)) {
-                return "O cliente já foi associado a este banco";
-            }
-            this.bancos.push(banco);
-            Banco.atualizarQuantidadeClientes(banco);
-        }
-    }
-
-    removeBank(banco) {
-        if (banco instanceof Banco) {
-            if (!this.bancos.includes(banco)) {
-                return "O cliente não foi associado a este banco";
-            }
-            let indexBanco = Banco.getIndexBancoCriado(banco, this.bancos);
-            this.bancos.splice(indexBanco, 1);
-            Banco.atualizarQuantidadeClientes(banco, false);
-        }
-    }
-
-}
-
+//Teste dos métodos criados
 let codigo = 0;
 const banco1 = new Banco(++codigo, 'Itaú', 0);
 const banco2 = new Banco(++codigo, 'Santander', 1);
@@ -145,3 +38,19 @@ console.log("\n\n Removendo um banco associado ao cliente1...");
 cliente1.removeBank(banco1);
 console.log(banco1);
 console.log(cliente1);
+
+const contaJuliaSantander = new ContaBanco(cliente1, banco2, 1234, 072);
+console.log(contaJuliaSantander);
+console.log(contaJuliaSantander.isAtiva);
+console.log(contaJuliaSantander.cliente);
+console.log(contaJuliaSantander.qtdRetiradasRealizadas);
+console.log(contaJuliaSantander.retiradasGratuitasPermitidas);
+
+contaJuliaSantander.creditar(5000);
+contaJuliaSantander.debitar(20000);
+contaJuliaSantander.sacarDinheiro(100);
+contaJuliaSantander.sacarDinheiro(50);
+contaJuliaSantander.sacarDinheiro(300);
+contaJuliaSantander.sacarDinheiro(1000);
+contaJuliaSantander.sacarDinheiro(150);
+contaJuliaSantander.fecharConta();
