@@ -16,6 +16,12 @@ constructor(code, name, transferRate){
 
 static createBanks = []
 
+get(){
+
+return this.#transferRate;
+}
+
+
 }
 
 
