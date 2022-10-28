@@ -16,40 +16,55 @@ class Bank {
     codigo;
     nome;
     #taxaTransferencia;
-    bancosCriados = []; 
+    static bancosCriados = []; 
+    qtyClientes = 0;
 
     constructor(codigo, nome, taxaTransferencia){
         this.codigo = codigo;
         this.nome = nome;
         this.#taxaTransferencia = taxaTransferencia;
+        this.constructor.bancosCriados.push({codigo: codigo, qtyClientes: this.qtyClientes})
     }
-    novosBancos(codigo, qtyClientes){
-            this.bancosCriados.push({
-                codigo: codigo,
-                qtyClientes: qtyClientes
-            });
 
-        return this.bancosCriados
+    addCliente(){
+        this.qtyClientes += 1
+    }
+
+    removeCliente(){
+        this.qtyClientes -= 1
     }
 }
 
 class Client extends Person {
 
-    BancoAssociada = [];
+    BancoAssociado = [];
 
     constructor(nome, cpf){
         super(nome, cpf);
     }
 
     addBank(bank){
-        this.BancoAssociada.push(bank);
+        if(bank instanceof Bank){
+            if(this.BancoAssociado.includes(bank)){
+                return console.log("Esse cliente já está cadastrado neste banco")
+            } else {
+            this.BancoAssociado.push(bank);
+            bank.addCliente()
+            }
+        }
     }
 
-    removeBack(bank){
-        const value = this.BancoAssociada.filter((item) => item === bank);
-        this.BancoAssociada.splice(bank.indexOf(value), 1);
+    removeBank(bank){
+        if(bank instanceof Bank){
+            if(this.BancoAssociado.includes(bank)){
+                this.BancoAssociado.splice(this.BancoAssociado.indexOf(bank), 1)
+                bank.removeCliente()
+                return console.log(`Banco foi removido ${bank.nome}`);
 
-        return this.BancoAssociada;
+            } else {
+                return console.log("Não foi possivel remover esse banco. Fere as normas do contratante.")
+            }
+        }
     }
 
 }
@@ -62,8 +77,11 @@ const cliente1 = new Client('Daviny', '123.456.789-01');
 cliente1.addBank(banco1);
 cliente1.addBank(banco2);
 
-console.log("bank", cliente1.BancoAssociada);
 
-cliente1.removeBack(banco1)
+console.log("bank", cliente1.BancoAssociado);
+console.log(banco1)
 
-console.log("o que sobrou", cliente1.BancoAssociada);
+cliente1.removeBank(banco1)
+
+console.log("o que sobrou", cliente1.BancoAssociado);
+console.log(banco1);
