@@ -59,7 +59,7 @@ Como métodos da classe `Client`, temos:
   - Verifique se o cliente já tem esse banco associado a ele. Se tiver, retorne uma mensagem e não adicione novamente.
   - Lembrar de aumentar a quantidade de clientes que esse banco possui.
 
-- [ ] `removeBank(bank)`: desassocia um banco a esse cliente.
+- [x] `removeBank(bank)`: desassocia um banco a esse cliente.
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente tem esse banco associado a ele. Se não tiver, retorne uma mensagem e termine a execução da função.
   - Lembrar de diminuir a quantidade de clientes que esse banco possui.
