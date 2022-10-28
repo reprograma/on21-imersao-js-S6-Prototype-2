@@ -9,11 +9,13 @@ class Client extends Person {
 
   addBank(newBank) {
     if (newBank instanceof Bank) {
-      const allBanks = this.listBanks.find(
-        (allBanks) => allBanks.code === allBanks.code
+      const allBanks = this.listBanks.find((allBanks) => allBanks.code === allBanks.code
       );
       if (!allBanks) {
         this.listBanks.push({ code: newBank.code , name: newBank.bankName });
+        
+        const numberClients = Bank.createdBanks.findIndex(createdBank => createdBank.code === newBank.code)
+        Bank.createdBanks[numberClients].qtyClients++;
         console.log(`Bank associated with success `);
       } else {
         console.log(`This bank is already associated`);
@@ -30,6 +32,7 @@ class Client extends Person {
         console.log('This bank is not associated.');
       } else {
         this.listBanks.splice(bankAssociated, 1)
+        Bank.createdBanks[bankAssociated].qtyClients--
         console.log(`Bank successfully disassociated.`);
       }
     } else {

@@ -6,10 +6,10 @@ class Bank {
     this.code = code;
     this.bankName = bankName;
     this.#fee = fee;
-    this.constructor.numerOfBanks.push({code: code, bankName: bankName})
+    this.constructor.createdBanks.push({code: this.code, qtyClients: 0})
   }
 
-  static numerOfBanks = [];
+  static createdBanks = [];
 }
 
 
