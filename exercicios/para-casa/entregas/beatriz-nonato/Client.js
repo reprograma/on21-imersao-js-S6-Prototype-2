@@ -36,12 +36,6 @@ class Client extends Person {
                 throw 'bank precisa ser instância da classe Bank';
             }
         }
-    }
-    
-    // const Bank1 = new Bank('000', 'Nubank')
-    // const newClient = new Client('Beatriz', '04204487902')
-    // newClient.addBank(Bank1)
-    // newClient.removeBank(Bank1)
-    // console.log(Bank)
-    
+}
+
 module.exports = Client;
