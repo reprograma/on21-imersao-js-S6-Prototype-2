@@ -14,5 +14,9 @@ const client2 = new Client('William', 25638265851)
 const client3 = new Client('Amanda', 562352266586)
 const client4 = new Client('Juliana', 54655286545)
 
+
 client1.addBank(bankInter)
+console.log(client1);
+client1.removeBank(bankInter)
+console.log(client1);
 
