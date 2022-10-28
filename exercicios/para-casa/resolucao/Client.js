@@ -58,8 +58,8 @@ class Client extends Person {
 	}
 }
 
-const client1 = new Client('Maria', 123);
-const client2 = new Client('Sandra', 456);
+const client1 = new Client('Maria', 123456789);
+const client2 = new Client('Sandra', 987654321);
 // console.log(client1); // Client { name: 'Maria', banks: [] }
 // console.log(client2); // Client { name: 'Sandra', banks: [] }
 

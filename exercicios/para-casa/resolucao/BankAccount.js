@@ -22,7 +22,7 @@ class BankAccount {
 			undefined
 		) {
 			return new Error(
-				`Cliente do CPF ${this.cpf} não possui conta no banco ${bank.bankName}`
+				`Cliente do CPF ${client.cpf} não possui conta no banco ${bank.bankName}`
 			);
 		}
 		this.client = client;
