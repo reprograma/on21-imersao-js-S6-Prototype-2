@@ -29,6 +29,7 @@ class Client extends Person {
       if (this.relatedBanks.indexOf(bank) > -1) {
         const b = this.relatedBanks.filter((e) => e.bankCode != bank.bankCode);
         this.relatedBanks = this.relatedBanks.filter((e) => e != bank);
+        console.log(`Banco removido!`);
       } else {
         console.log(
           `Você não é associado ao banco, por isso nao pode remove-lo`
@@ -53,5 +54,8 @@ cliente1.addBank(banco2);
 cliente2.addBank(banco1);
 
 console.log("bank", cliente2.relatedBanks);
+
+cliente1.removeBank(banco1);
+console.log("bank", cliente1.relatedBanks);
 
 module.exports = { Client };
