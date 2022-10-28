@@ -1,0 +1,23 @@
+class Person {
+  name
+  #cpf
+  constructor(name, cpf) {
+    this.name = name
+    this.#cpf = cpf
+  }
+
+  get name() {
+    return this.name
+  }
+
+  set name(newName) {
+    return this.name = newName
+  }
+
+  get cpf() {
+    return this.#cpf
+  }
+
+}
+
+module.exports = Person
