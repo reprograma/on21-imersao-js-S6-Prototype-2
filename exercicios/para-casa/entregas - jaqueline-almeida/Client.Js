@@ -1,5 +1,6 @@
-const Bank = require('./Bank');
 const Person = require('./Person')
+const Bank = require('./Bank');
+
 
 
 class Client extends Person{
@@ -40,38 +41,22 @@ class Client extends Person{
       }
     }
 
-//     removeBank(bank){
-//         try{
-//             if(this.AssociateBank.includes([bank])){
-//                 this.AssociateBank.splice(this.AssociateBank.indexOf(bank))
-//            } 
-//            else{
-//                 throw "Erro ao remover banco!"
-//            }
+//
 
-//         } catch(err){
-//             if(err == 'Erro'){
-//                 console.log('Banco não encontrado')
-//             }
-//         }
-     
-//     }
-// }
+// const bancoDoBrasil = new Bank('000', 'Banco do Brasil')
+// const nubank = new Bank('111', 'Nubank')
 
-const bancoDoBrasil = new Bank('000', 'Banco do Brasil')
-const nubank = new Bank('111', 'Nubank')
+// const client1 = new Client('Maria', '00000000000')
+// const client2 = new Client('Flavia', '1111111111')
 
-const client1 = new Client('Maria', '00000000000')
-const client2 = new Client('Flavia', '1111111111')
+// client1.addBank(bancoDoBrasil);
+// client1.addBank(nubank);
+// console.log(client1)
 
-client1.addBank(bancoDoBrasil);
-client1.addBank(nubank);
-console.log(client1)
+// client1.removeBank(bancoDoBrasil);
 
-client1.removeBank(bancoDoBrasil);
-
-client2.addBank(bancoDoBrasil);
-console.log(client2);
-console.log(Bank)
+// client2.addBank(bancoDoBrasil);
+// console.log(client2);
+// console.log(Bank)
 
 module.exports = Client;
