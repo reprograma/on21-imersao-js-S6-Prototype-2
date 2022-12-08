@@ -1,7 +1,8 @@
 const Client = require("./Clients");
 class Bank{
-    #transferRate;
-    static createdBanks = [];
+  code;
+  bankName;
+  #transferRate;
 
     constructor(code, bankName, transferRate ){
       this.code=code
@@ -12,6 +13,7 @@ class Bank{
         this.constructor.createdBanks.push({code:code, qtyClients: 0})
       }
     }
+    static createdBanks = []; 
 };
 
 module.exports=Bank; 

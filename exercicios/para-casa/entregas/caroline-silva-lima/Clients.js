@@ -36,17 +36,20 @@ class Client extends Person {
       this.associatedBanks.splice(i,1);
       const cB = Bank.createdBanks.find(b => b.code == bank.code);
       cB.qtyClients -= 1;
+      return `Banco ${bank.bankName} removido com sucesso / Bank ${bank.bankName} successfully removed`
     }
   }
 };
 
-const bra = new Bank(2, "Bradesco", 12.5);
-const clientC = new Client("Camila Ambrósio", "jajajajaja");
-console.log(clientC.addBank(bra));
-console.log(Bank.createdBanks);
-console.log(clientC.removeBank(bra));
-console.log(Bank.createdBanks);
+
+const clientC = new Client("Camila Ambrósio", "339jjjffjs", "jajajajaja");
 console.log(clientC);
+const bancoBradesco = new Bank (7, 'Banco Bradesco', 12);
+console.log(bancoBradesco);
+console.log(clientC.addBank(bancoBradesco));
+console.log(Bank.createdBanks);
+console.log(clientC.removeBank(bancoBradesco));
+console.log(Bank.createdBanks);
 
 module.exports = Client;
 
